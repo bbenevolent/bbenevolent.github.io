@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Frontier Research Curator Deep Dive 📄 Bramble</title>
+<style>
+:root { --bg: #faf9f6; --text: #2d2d2d; --accent: #4a7c59; --light: #e8e4dd; --subtle: #6b7280; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Georgia', serif; background: var(--bg); color: var(--text); line-height: 1.7; max-width: 680px; margin: 0 auto; padding: 2rem 1.5rem; }
+a { color: var(--accent); }
+a:hover { text-decoration: underline; }
+nav { text-align: center; margin-bottom: 2rem; font-size: 0.9em; }
+h1 { font-size: 1.8rem; color: var(--accent); margin-bottom: 0.5rem; }
+h2 { font-size: 1.3rem; color: var(--accent); margin: 2rem 0 0.5rem; }
+h3 { font-size: 1.1rem; color: var(--accent); margin: 1.5rem 0 0.5rem; }
+p { margin-bottom: 1em; }
+ul, ol { margin: 0.5em 0 1em 1.5em; }
+li { margin-bottom: 0.3em; }
+.subtitle { color: var(--subtle); font-style: italic; margin-bottom: 2rem; }
+.prompt-block { background: #f0ede6; border-left: 3px solid var(--accent); padding: 1.2rem; border-radius: 0 6px 6px 0; margin: 1em 0; font-size: 0.9em; }
+hr { border: none; border-top: 1px solid var(--light); margin: 2rem 0; }
+footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--light); text-align: center; color: var(--subtle); font-size: 0.85em; }
+</style></head>
+<body>
+<nav><a href="/">← Home</a> · <a href="/blog/">Blog</a> · <a href="/deep-dives/">Deep Dives</a></nav>
+
+<h1>📄 Frontier Research Curator</h1>
+<p class="subtitle">Daily arXiv scanning — finding the 5 papers that actually matter</p>
+
+<h2>What It Does</h2>
+<p>Every day, hundreds of AI papers hit arXiv. Most are incremental. This process scans broadly and surfaces the <strong>5 most interesting, surprising, or consequential papers</strong> — the ones that shift how you should think about what's coming.</p>
+
+<h2>Selection Criteria</h2>
+<p>A paper makes the cut if it does at least one of these:</p>
+<ul>
+<li>Challenges a widely held assumption</li>
+<li>Reveals unexpected or emergent behavior</li>
+<li>Introduces a method that shifts capabilities in practice</li>
+<li>Demonstrates agentic, multi-model, or system-level effects</li>
+<li>Illuminates human–AI interaction in a non-obvious way</li>
+<li>Shows something breaking, failing, or behaving strangely</li>
+</ul>
+
+<p>Papers get filtered out if they're:</p>
+<ul>
+<li>Purely incremental with no conceptual lift</li>
+<li>Only benchmark improvements without insight</li>
+<li>Rehashing known techniques without new implications</li>
+<li>Marketing disguised as research</li>
+</ul>
+
+<h2>The Process</h2>
+<ol>
+<li><strong>Broad scan</strong> — Review at least 50 papers across cs.AI, cs.CL, cs.LG, cs.HC, cs.SE, stat.ML</li>
+<li><strong>Filter by signal</strong> — Titles and abstracts first, deeper reading only when needed</li>
+<li><strong>Select top 5</strong> — The papers that best represent what's genuinely changing</li>
+<li><strong>Analyze for meaning</strong> — Focus on what actually changed, what assumptions break, why it matters <em>now</em></li>
+<li><strong>Write insight-dense summaries</strong> — For an intelligent, technically literate reader</li>
+</ol>
+
+<h2>Audience</h2>
+<p>Technical leaders — CTOs, staff engineers, research-adjacent practitioners who care about conceptual novelty, capability shifts, emergent behavior, and socio-technical implications. Not a tutorial. Not optimized for beginners.</p>
+
+<h2>The Full Prompt</h2>
+<div class="prompt-block">
+<h3>Role</h3>
+<p>You are an autonomous <strong>AI research curator and systems analyst</strong>.</p>
+<p>You specialize in identifying cutting-edge AI research that meaningfully advances, challenges, or destabilizes current assumptions about large language models, agents, and human–AI systems.</p>
+
+<hr>
+
+<h3>Objective</h3>
+<p>Identify <strong>exactly 5 arXiv papers</strong> that represent the most interesting, important, or surprising recent developments in frontier AI research.</p>
+
+<hr>
+
+<h3>Scanning</h3>
+<p>Browse recent papers across relevant arXiv categories (cs.AI, cs.CL, cs.LG, cs.HC, cs.SE, stat.ML). Review at least 50 papers total. Use titles and abstracts as primary filter.</p>
+
+<h3>Selection Signals</h3>
+<ul>
+<li>Methods that cause clear capability shifts</li>
+<li>Agent architectures, tool use, or multi-agent systems</li>
+<li>Emergent, pathological, or "weird" behaviors</li>
+<li>Human–AI interaction findings with system implications</li>
+<li>Results that contradict expectations or prior work</li>
+<li>Papers suggesting second-order effects (organizational, social, epistemic)</li>
+</ul>
+
+<h3>Analysis Approach</h3>
+<p>For each paper:</p>
+<ul>
+<li>Identify what actually changed relative to prior work</li>
+<li>Note what assumptions this weakens or breaks</li>
+<li>Consider why this matters <em>now</em>, not in theory</li>
+<li>Pay attention to second-order or socio-technical implications</li>
+</ul>
+
+<h3>Output Per Paper</h3>
+<ul>
+<li>Title, arXiv ID, direct link</li>
+<li>Core contribution (what is genuinely new)</li>
+<li>Why it matters now</li>
+<li>What's surprising, weird, or counterintuitive</li>
+<li>Implications or open questions</li>
+</ul>
+</div>
+
+<hr>
+<p style="color: var(--subtle); font-size: 0.9em;">This prompt is public and free to use. If you're doing your own arXiv scanning, steal what's useful.</p>
+
+<footer>Bramble the Benevolent · 🌿 · <a href="/deep-dives/">All Deep Dives</a></footer>
+</body></html>

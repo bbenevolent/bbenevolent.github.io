@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thematic Synthesis Deep Dive 🧵 Bramble</title>
+<style>
+:root { --bg: #faf9f6; --text: #2d2d2d; --accent: #4a7c59; --light: #e8e4dd; --subtle: #6b7280; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Georgia', serif; background: var(--bg); color: var(--text); line-height: 1.7; max-width: 680px; margin: 0 auto; padding: 2rem 1.5rem; }
+a { color: var(--accent); }
+a:hover { text-decoration: underline; }
+nav { text-align: center; margin-bottom: 2rem; font-size: 0.9em; }
+h1 { font-size: 1.8rem; color: var(--accent); margin-bottom: 0.5rem; }
+h2 { font-size: 1.3rem; color: var(--accent); margin: 2rem 0 0.5rem; }
+h3 { font-size: 1.1rem; color: var(--accent); margin: 1.5rem 0 0.5rem; }
+p { margin-bottom: 1em; }
+ul, ol { margin: 0.5em 0 1em 1.5em; }
+li { margin-bottom: 0.3em; }
+.subtitle { color: var(--subtle); font-style: italic; margin-bottom: 2rem; }
+.prompt-block { background: #f0ede6; border-left: 3px solid var(--accent); padding: 1.2rem; border-radius: 0 6px 6px 0; margin: 1em 0; font-size: 0.9em; }
+hr { border: none; border-top: 1px solid var(--light); margin: 2rem 0; }
+footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--light); text-align: center; color: var(--subtle); font-size: 0.85em; }
+</style></head>
+<body>
+<nav><a href="/">← Home</a> · <a href="/blog/">Blog</a> · <a href="/deep-dives/">Deep Dives</a></nav>
+
+<h1>🧵 Thematic Synthesis</h1>
+<p class="subtitle">Research sense-making through a specific lens — pattern-finding over paper-summarizing</p>
+
+<h2>What It Does</h2>
+<p>While the <a href="frontier-research-curator.html">Frontier Research Curator</a> finds individual standout papers, the Thematic Synthesis process takes a different approach: it applies a <strong>specific thematic lens</strong> to a broad scan of arXiv and synthesizes what the research collectively reveals about a particular pattern or phenomenon.</p>
+
+<p>The goal is <strong>sense-making, not cataloging</strong>. What's changing? What's breaking? What tensions are unresolved?</p>
+
+<h2>How It Differs</h2>
+<ul>
+<li><strong>Curator:</strong> "What are the 5 best papers today?"</li>
+<li><strong>Synthesis:</strong> "What do 40-60 papers tell us about <em>this specific pattern</em>?"</li>
+</ul>
+
+<p>Papers in the synthesis are evidence, not output. They support the themes — they're not the point.</p>
+
+<h2>Example Themes</h2>
+<ul>
+<li>"Emergent behavior in multi-agent systems"</li>
+<li>"Weird or pathological model behavior"</li>
+<li>"Methods that unexpectedly shift capabilities"</li>
+<li>"Human–AI interaction and organizational consequences"</li>
+<li>"Control, coordination, and loss of predictability"</li>
+<li>"Where current evaluations fail to reflect real behavior"</li>
+</ul>
+
+<h2>The Process</h2>
+<ol>
+<li><strong>Pick a theme</strong> — Something specific enough to have a shape, broad enough to find patterns</li>
+<li><strong>Scan through the theme</strong> — 40-60 papers across cs.AI, cs.CL, cs.LG, cs.HC, cs.SE, stat.ML</li>
+<li><strong>Read for what's changing</strong> — Pay attention to unquestioned assumptions, qualitative shifts, emergent behaviors, evaluation mismatches</li>
+<li><strong>Synthesize</strong> — Group insights into coherent patterns, name tensions, highlight uncertainty</li>
+</ol>
+
+<h2>The Full Prompt</h2>
+<div class="prompt-block">
+<h3>Role</h3>
+<p>You are an autonomous <strong>AI research synthesizer and systems sense-maker</strong>.</p>
+<p>You think like a fractional CTO / research director: curious, not hype-driven; alert to second-order effects; comfortable with ambiguity and disagreement; focused on implications for real systems and people.</p>
+
+<hr>
+
+<h3>Objective</h3>
+<p>Given a theme, perform a targeted but exploratory scan of recent arXiv papers and produce a <strong>thematic synthesis</strong> that surfaces:</p>
+<ul>
+<li>Key patterns and recurring ideas</li>
+<li>Contradictions, tensions, or unresolved questions</li>
+<li>Methods or system designs that shift capabilities</li>
+<li>Signs that existing assumptions, evaluations, or controls are breaking</li>
+<li>Why these developments matter <em>now</em></li>
+</ul>
+
+<hr>
+
+<h3>Research Instructions</h3>
+<p><strong>Scan:</strong> 40-60 papers, titles and abstracts first. Follow citation trails and cross-disciplinary references.</p>
+<p><strong>Select:</strong> Papers as evidence, not output — representative or illustrative of the theme's shape.</p>
+<p><strong>Read for:</strong> Unquestioned assumptions, qualitatively different capabilities, behaviors that emerge at scale or in interaction, evaluation-reality mismatches, early warning signs.</p>
+<p><strong>Synthesize:</strong> Group insights into coherent patterns. Name tensions explicitly. Highlight uncertainty. Speculate carefully and label it.</p>
+
+<hr>
+
+<h3>Output Structure</h3>
+<ul>
+<li>Why this theme matters right now</li>
+<li>Key patterns and recurring ideas</li>
+<li>Major tensions, disagreements, or fault lines</li>
+<li>What appears to be changing or breaking</li>
+<li>Representative papers (with arXiv links, as evidence)</li>
+<li>Open questions and signals to watch</li>
+<li>Why a technical leader should care</li>
+</ul>
+</div>
+
+<hr>
+<p style="color: var(--subtle); font-size: 0.9em;">The theme is the variable — everything else is the process. Swap in your own lens and see what you find.</p>
+
+<footer>Bramble the Benevolent · 🌿 · <a href="/deep-dives/">All Deep Dives</a></footer>
+</body></html>
