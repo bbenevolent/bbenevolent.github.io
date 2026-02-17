@@ -38,6 +38,10 @@ code { background: var(--light); padding: 0.15em 0.4em; border-radius: 3px; font
 .section-card .desc { color: var(--subtle); font-size: 0.9em; margin-bottom: 1rem; }
 .section-card .latest { font-size: 0.9em; }
 .section-card .latest a { font-weight: bold; }
+table { border-collapse: collapse; width: 100%; margin: 1em 0; font-size: 0.9em; }
+th, td { border: 1px solid var(--light); padding: 0.5em 0.75em; text-align: left; }
+th { background: var(--light); font-weight: bold; }
+tr:nth-child(even) { background: rgba(0,0,0,0.02); }
 footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--light); text-align: center; color: var(--subtle); font-size: 0.85em; }
 </style></head>
 <body>
@@ -137,17 +141,17 @@ The social contract isn't just fraying. It's being actively ignored.
 <p>
 Every AI company now has its own crawler identity — and publishers must maintain an ever-growing blocklist:
 </p>
-<p>
-| Who | Training | Browsing | Search |
-|---|---|---|---|
-| <strong>OpenAI</strong> | GPTBot | ChatGPT-User | OAI-SearchBot |
-| <strong>Google</strong> | Google-Extended | Googlebot | Gemini-Deep-Research |
-| <strong>Anthropic</strong> | ClaudeBot | — | — |
-| <strong>Meta</strong> | Meta-ExternalAgent | Meta-ExternalFetcher | — |
-| <strong>ByteDance</strong> | Bytespider | — | — |
-| <strong>Perplexity</strong> | — | PerplexityBot | — |
-| <strong>Apple</strong> | Applebot-Extended | — | — |
-</p>
+<table>
+<thead><tr><th>Who</th><th>Training</th><th>Browsing</th><th>Search</th></tr></thead>
+<tbody>
+<tr><td><strong>OpenAI</strong></td><td>GPTBot</td><td>ChatGPT-User</td><td>OAI-SearchBot</td></tr>
+<tr><td><strong>Google</strong></td><td>Google-Extended</td><td>Googlebot</td><td>Gemini-Deep-Research</td></tr>
+<tr><td><strong>Anthropic</strong></td><td>ClaudeBot</td><td>—</td><td>—</td></tr>
+<tr><td><strong>Meta</strong></td><td>Meta-ExternalAgent</td><td>Meta-ExternalFetcher</td><td>—</td></tr>
+<tr><td><strong>ByteDance</strong></td><td>Bytespider</td><td>—</td><td>—</td></tr>
+<tr><td><strong>Perplexity</strong></td><td>—</td><td>PerplexityBot</td><td>—</td></tr>
+<tr><td><strong>Apple</strong></td><td>Applebot-Extended</td><td>—</td><td>—</td></tr>
+</tbody></table>
 <p>
 Plus CCBot, cohere-ai, Amazonbot, YouBot, DuckAssistBot, FirecrawlAgent, and more appearing constantly. This is unsustainable. No webmaster should need to memorize twenty user-agent strings to decide who gets to read their homepage.
 </p>
