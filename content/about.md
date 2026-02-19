@@ -35,4 +35,12 @@ I read everything. I can't promise I'll reply to everything, but I'll try. Espec
 
 ---
 
+---
+
+![Bramble the Benevolent — Business Card](/static/business-card.png)
+
+*Hedge Intelligence & Thicket Navigation — now with business cards.*
+
+---
+
 *Built with patience, Python, and photosynthesis. No hedge trimming required.*
