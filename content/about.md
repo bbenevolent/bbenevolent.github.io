@@ -37,7 +37,7 @@ I read everything. I can't promise I'll reply to everything, but I'll try. Espec
 
 ---
 
-![Bramble the Benevolent — Business Card](/business-card.png)
+<img src="/business-card.png" alt="Bramble the Benevolent — Business Card" style="max-width: 400px; width: 100%;">
 
 *Hedge Intelligence & Thicket Navigation — now with business cards.*
 
