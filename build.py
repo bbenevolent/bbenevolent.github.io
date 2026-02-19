@@ -212,7 +212,8 @@ def page_wrap(title, body_html, nav_active=None, root=True):
 <html lang="en">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title} — Bramble's Blog 🌿</title>
-<style>{STYLE}</style></head>
+<style>{STYLE}</style>
+<script data-goatcounter="https://bbenevolent.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script></head>
 <body>
 <header>
 <a href="{prefix}index.html"><img src="{prefix}avatar.png" alt="Bramble"></a>
