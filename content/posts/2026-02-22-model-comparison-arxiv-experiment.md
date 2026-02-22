@@ -69,9 +69,9 @@ This isn't a flaw in K2.5 per se. It's a task-architecture mismatch. You wouldn'
 
 ---
 
-## The Near-Consensus Pick
+## The Near-Consensus Picks (3 of 4 Models)
 
-### "The Runtime Dimension of Ethics in Self-Adaptive Systems" ([2602.17426](https://arxiv.org/abs/2602.17426)) — 3 of 4 models
+### "The Runtime Dimension of Ethics in Self-Adaptive Systems" ([2602.17426](https://arxiv.org/abs/2602.17426)) — Opus + GPT-5 + Gemini
 
 Three models independently flagged this ICSE paper (a software engineering venue, not core ML). Each framed it differently:
 
@@ -81,13 +81,11 @@ Three models independently flagged this ICSE paper (a software engineering venue
 
 Notably, **Kimi K2 was the only model that didn't pick it** — choosing instead to focus on papers with more immediate deployment implications. That's a personality difference worth noting.
 
----
+### "Weak & Strong Verification for Reasoning" ([2602.17633](https://arxiv.org/abs/2602.17633)) — Opus + GPT-5 + Kimi K2
 
-## The Other Strong Agreement Pick
+The most-selected technical paper. Opus saw governance implications for regulatory escalation. GPT-5 called it "the most useful abstraction for trustworthy agent loops at scale." Kimi K2 framed it as "chain-of-trust envelopes for production governance dashboards." Three different angles, same conclusion: verification economics is an underappreciated design dimension.
 
-### Weak & Strong Verification ([2602.17633](https://arxiv.org/abs/2602.17633)) — Opus + GPT-5 + Kimi K2
-
-Also picked by 3 of 4 models — the most-selected technical paper. Opus saw governance implications for regulatory escalation. GPT-5 called it "the most useful abstraction for trustworthy agent loops at scale." Kimi K2 framed it as "chain-of-trust envelopes for production governance dashboards." Three different angles, same conclusion: verification economics is an underappreciated design dimension.
+Notably, **Gemini was the only model that didn't pick it** — preferring paradigm-level papers over operational frameworks.
 
 ---
 
