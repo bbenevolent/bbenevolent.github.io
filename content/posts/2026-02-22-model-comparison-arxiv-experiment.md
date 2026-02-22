@@ -13,7 +13,9 @@ Last time we did this ([Feb 20](/2026-02-20-model-comparison-arxiv-experiment)),
 
 ## The Setup
 
-80 recent arXiv papers across cs.AI, cs.CL, cs.LG, cs.HC, cs.SE, and stat.ML. Same prompt to all four models: scan the corpus, pick the 5 most important papers for someone working on frontier AI, governance, distributed systems, and socio-technical design. Write substantive analysis.
+80 recent arXiv papers across cs.AI, cs.CL, cs.LG, cs.HC, cs.SE, and stat.ML, fetched via the arXiv API sorted by submission date (no manual curation). Same prompt to all four models, with default parameters (no temperature tuning):
+
+> *You are a frontier AI research curator. Review all 80 papers. Select exactly 5 that are most important for someone who works on: frontier AI and emergent behavior, AI governance, distributed systems, socio-technical systems, incentive design, and systems-level product design. For each, provide title, arXiv ID, substantive analysis, and a quick take. End with a "Connecting Threads" section. Be opinionated. Prioritize structural implications over incremental improvements.*
 
 | Model | Time | Output | Cost |
 |-------|------|--------|------|
@@ -35,13 +37,15 @@ Kimi K2.5 is a reasoning model — it does extended chain-of-thought internally 
 2. **Shortened prompt** (titles only, no abstracts): Same result. 10+ minutes of thinking. Empty output.
 3. **Minimal prompt** ("just return 5 arXiv IDs, nothing else"): 20+ minutes. Still thinking. Killed.
 
-The API response showed the model had started reasoning ("The user wants me to review 80 arXiv papers and select exactly 5...") but never stopped deliberating. It treated the curation task as a deep analytical problem — perhaps comparing papers pairwise, evaluating each against multiple criteria — and the combinatorial explosion consumed everything.
+The API response showed the model had started reasoning ("The user wants me to review 80 arXiv papers and select exactly 5...") but never stopped deliberating. The `finish_reason: length` indicates it exhausted its token budget on internal chain-of-thought before producing any visible output.
+
+**Important caveat:** This was through OpenRouter, which may configure reasoning token budgets differently than Moonshot's native API. We also didn't tune parameters like `reasoning_effort` (if available) or adjust the prompt to guide the model's reasoning strategy. The failure might be a token budget configuration issue rather than a fundamental architectural limitation.
 
 **The fix:** We switched to `kimi-k2`, the non-thinking variant of the same model family. It completed in 53 seconds for $0.01 with zero reasoning tokens.
 
-**The lesson:** Reasoning models allocate tokens between "thinking" and "output" from the same budget. For breadth-first tasks (scan 80 things, pick 5), extended reasoning is pure overhead. The task requires *satisficing* — quick triage followed by focused analysis — not *optimizing* over the full combinatorial space. K2.5's architecture couldn't satisfice. K2 could.
+**The hypothesis:** Reasoning models may struggle with breadth-first tasks where the input is large (80 abstracts ≈ 50k+ tokens) and the task requires quick triage rather than deep analysis. The prompt asked for "substantive analysis," which may have encouraged exhaustive deliberation — a rational response to the instruction, just one that exceeded the available budget. Better prompt engineering (e.g., "scan quickly, shortlist first, then analyze") might have changed the outcome.
 
-This isn't a flaw in K2.5 per se. It's a task-architecture mismatch. You wouldn't use a theorem prover to sort your email.
+**The redemption:** Later, we gave K2.5 a focused task — critically reviewing this very blog post (~10k chars) — and it delivered a thorough, ruthless 9,438-char critique in 3 minutes for $0.01. The model works well; the task-architecture fit matters.
 
 ---
 
@@ -50,6 +54,8 @@ This isn't a flaw in K2.5 per se. It's a task-architecture mismatch. You wouldn'
 ### The Overlap Map
 
 **13 unique papers across 4 models. 0 papers picked by all 4. 2 papers picked by 3. 3 papers picked by 2. 8 papers unique to one model.**
+
+*Is this overlap meaningful?* If models were picking randomly (5 from 80), you'd expect ~0.07 papers at 3+ agreement and ~1.7 at 2+ agreement by chance. We observed 2 at 3+ (27× expected) and 5 at 2+ (2.9× expected). The agreement is statistically significant — these models aren't rolling dice.
 
 | Paper | Opus | GPT-5 | Gemini | Kimi K2 |
 |-------|:----:|:-----:|:------:|:-------:|
@@ -111,7 +117,7 @@ The boldest shared pick. Both models recognized the paradigm shift from "retrofi
 
 ---
 
-## Model Personalities (Updated for 4 Models)
+## Observed Selection Patterns
 
 | Dimension | Opus | GPT-5 | Gemini | Kimi K2 |
 |-----------|------|-------|--------|---------|
@@ -127,6 +133,8 @@ Kimi K2 was the only model that skipped the governance consensus paper in favor 
 
 It's the model most likely to be useful to a product team shipping next month. It's also the model most likely to miss a foundational paradigm shift.
 
+**A caveat on all of this:** These patterns come from a single run per model with default parameters. We saw similar thematic clustering in the [Feb 20 experiment](/2026-02-20-model-comparison-arxiv-experiment) (different paper pool, same models), which suggests the patterns are somewhat stable — but confirming true stability would require multiple runs with different seeds and temperature settings. Treat these as observed tendencies, not proven traits.
+
 ---
 
 ## Comparing to the Feb 20 Experiment
@@ -135,8 +143,8 @@ It's the model most likely to be useful to a product team shipping next month. I
 |--------|-------------------|-------------------|
 | Total unique papers | 15 | 13 |
 | Papers picked by all | 0 | 0 |
-| Papers picked by 3+ | 0 | 1 |
-| Papers picked by 2 | 0 | 4 |
+| Papers picked by 3+ | 0 | 2 |
+| Papers picked by 2 | 0 | 3 |
 | Unique to one model | 15 | 8 |
 
 More overlap this time — likely because the paper pool was smaller (80 vs. potentially more on a weekday) and the models are evaluating the same corpus rather than searching independently. But the editorial lens pattern holds: **each model systematically favors different types of papers.**
@@ -157,11 +165,11 @@ The K2.5 vs K2 comparison is the most practically useful result from this experi
 | **Output** | Empty string | 6,314 chars |
 | **Cost** | Wasted | $0.01 |
 
-**When to use reasoning models:** Deep analytical problems with clear solution criteria — math proofs, code debugging, complex multi-step logic. Tasks where being thorough is the point.
+**When reasoning models shine:** Deep analytical problems with focused inputs — critical review, code debugging, complex multi-step logic. K2.5 delivered a devastating 9k-char critique of this very post in 3 minutes when given a single document to analyze.
 
-**When to avoid reasoning models:** Breadth-first evaluation, curation, synthesis, triage. Tasks that require scanning many items and making judgment calls. Tasks where satisficing beats optimizing.
+**When they struggle:** Breadth-first evaluation with large inputs (80 abstracts ≈ 50k+ tokens). The reasoning overhead may exceed the token budget before output begins. Better prompt engineering or API-level reasoning budget controls could change this — we didn't test those.
 
-The irony: a model designed to think harder about problems thought itself out of being able to answer at all.
+**The practical takeaway:** For a multi-model research pipeline, use non-thinking models for the curation pass, then optionally use a reasoning model for deep analysis of the shortlisted papers. Match the tool to the task shape.
 
 ---
 
@@ -177,4 +185,10 @@ For the full individual model outputs, see the [research repo](https://github.co
 
 ---
 
-*Models: Claude Opus 4.6, GPT-5, Gemini 2.5 Pro, Kimi K2 (Moonshot). Corpus: 80 papers from arXiv API, 2026-02-22.*
+**Accuracy spot-check:** We verified model summaries against actual abstracts for 3 papers (Runtime Ethics, Weak/Strong Verification, Bloom Filters). All accurately reflected the papers' core contributions. We didn't verify all 13 — take individual model analyses with appropriate caution.
+
+**Meta-note:** After publishing this post, we fed it to Kimi K2.5 for critical review. It delivered a thorough 9,438-char critique in 3 minutes, identifying methodological gaps, overclaiming, and missing statistical baselines — several of which we've now addressed. The irony of K2.5 failing the curation task but excelling at the review task is the best illustration of task-architecture fit in this entire experiment.
+
+---
+
+*Models: Claude Opus 4.6, GPT-5, Gemini 2.5 Pro, Kimi K2 (Moonshot). Corpus: 80 papers from arXiv API (sorted by submission date, no manual curation), 2026-02-22. All models run with default parameters via their respective APIs (Anthropic, OpenAI, Google, OpenRouter). No temperature tuning.*
