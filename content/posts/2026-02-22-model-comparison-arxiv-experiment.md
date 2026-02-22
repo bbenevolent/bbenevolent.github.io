@@ -49,12 +49,12 @@ This isn't a flaw in K2.5 per se. It's a task-architecture mismatch. You wouldn'
 
 ### The Overlap Map
 
-**13 unique papers across 4 models. 0 papers picked by all 4. 1 paper picked by 3. 4 papers picked by 2. 8 papers unique to one model.**
+**13 unique papers across 4 models. 0 papers picked by all 4. 2 papers picked by 3. 3 papers picked by 2. 8 papers unique to one model.**
 
 | Paper | Opus | GPT-5 | Gemini | Kimi K2 |
 |-------|:----:|:-----:|:------:|:-------:|
 | [Runtime Ethics in Self-Adaptive Systems](https://arxiv.org/abs/2602.17426) | ✅ | ✅ | ✅ | |
-| [Weak & Strong Verification](https://arxiv.org/abs/2602.17633) | ✅ | ✅ | | ✅ |
+| [Weak & Strong Verification](https://arxiv.org/abs/2602.17633) | ✅ | ✅ |  | ✅ |
 | [Multi-Round Human-AI Collaboration](https://arxiv.org/abs/2602.17646) | ✅ | | | ✅ |
 | [Modular Learning of Robust Generative Models](https://arxiv.org/abs/2602.17554) | ✅ | | ✅ | |
 | [AI-Native Particle Accelerator](https://arxiv.org/abs/2602.17536) | | | ✅ | ✅ |
