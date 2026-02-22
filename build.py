@@ -236,7 +236,10 @@ def build():
 
     # Copy static files
     for f in glob.glob('static/*'):
-        shutil.copy2(f, '_site/')
+        if os.path.isdir(f):
+            shutil.copytree(f, f'_site/{os.path.basename(f)}', dirs_exist_ok=True)
+        else:
+            shutil.copy2(f, '_site/')
 
     # Collect posts
     posts = []
