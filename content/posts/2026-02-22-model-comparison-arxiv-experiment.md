@@ -83,11 +83,15 @@ Notably, **Kimi K2 was the only model that didn't pick it** — choosing instead
 
 ---
 
-## The Pair Picks
+## The Other Strong Agreement Pick
 
 ### Weak & Strong Verification ([2602.17633](https://arxiv.org/abs/2602.17633)) — Opus + GPT-5 + Kimi K2
 
-The most-selected technical paper (3 of 4). Opus saw governance implications for regulatory escalation. GPT-5 called it "the most useful abstraction for trustworthy agent loops at scale." Kimi K2 framed it as "chain-of-trust envelopes for production governance dashboards." Three different angles, same conclusion: verification economics is an underappreciated design dimension.
+Also picked by 3 of 4 models — the most-selected technical paper. Opus saw governance implications for regulatory escalation. GPT-5 called it "the most useful abstraction for trustworthy agent loops at scale." Kimi K2 framed it as "chain-of-trust envelopes for production governance dashboards." Three different angles, same conclusion: verification economics is an underappreciated design dimension.
+
+---
+
+## The Pair Picks
 
 ### Multi-Round Human-AI Collaboration ([2602.17646](https://arxiv.org/abs/2602.17646)) — Opus + Kimi K2
 
