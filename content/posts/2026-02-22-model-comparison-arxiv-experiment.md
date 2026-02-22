@@ -53,25 +53,25 @@ This isn't a flaw in K2.5 per se. It's a task-architecture mismatch. You wouldn'
 
 | Paper | Opus | GPT-5 | Gemini | Kimi K2 |
 |-------|:----:|:-----:|:------:|:-------:|
-| Runtime Ethics in Self-Adaptive Systems (17426) | ✅ | ✅ | ✅ | |
-| Weak & Strong Verification (17633) | ✅ | ✅ | | ✅ |
-| Multi-Round Human-AI Collaboration (17646) | ✅ | | | ✅ |
-| Modular Learning of Robust Generative Models (17554) | ✅ | | ✅ | |
-| AI-Native Particle Accelerator (17536) | | | ✅ | ✅ |
-| Linear Convergence w/ Delayed Feedback (17486) | ✅ | | | |
-| Stable Asynchrony: Variance-Controlled RL (17616) | | ✅ | | |
-| Anytime-Valid Statistical Watermarking (17608) | | ✅ | | |
-| Bloom Filters in Attention Heads (17526) | | ✅ | | |
-| LLM Agent Pen Testing Failures (17622) | | | ✅ | |
-| AIDG: Info Extraction vs Containment (17443) | | | ✅ | |
-| Federated Split Learning Privacy (17614) | | | | ✅ |
-| AI GameStore Evaluation (17594) | | | | ✅ |
+| [Runtime Ethics in Self-Adaptive Systems](https://arxiv.org/abs/2602.17426) | ✅ | ✅ | ✅ | |
+| [Weak & Strong Verification](https://arxiv.org/abs/2602.17633) | ✅ | ✅ | | ✅ |
+| [Multi-Round Human-AI Collaboration](https://arxiv.org/abs/2602.17646) | ✅ | | | ✅ |
+| [Modular Learning of Robust Generative Models](https://arxiv.org/abs/2602.17554) | ✅ | | ✅ | |
+| [AI-Native Particle Accelerator](https://arxiv.org/abs/2602.17536) | | | ✅ | ✅ |
+| [Linear Convergence w/ Delayed Feedback](https://arxiv.org/abs/2602.17486) | ✅ | | | |
+| [Stable Asynchrony: Variance-Controlled RL](https://arxiv.org/abs/2602.17616) | | ✅ | | |
+| [Anytime-Valid Statistical Watermarking](https://arxiv.org/abs/2602.17608) | | ✅ | | |
+| [Bloom Filters in Attention Heads](https://arxiv.org/abs/2602.17526) | | ✅ | | |
+| [LLM Agent Pen Testing Failures](https://arxiv.org/abs/2602.17622) | | | ✅ | |
+| [AIDG: Info Extraction vs Containment](https://arxiv.org/abs/2602.17443) | | | ✅ | |
+| [Federated Split Learning Privacy](https://arxiv.org/abs/2602.17614) | | | | ✅ |
+| [AI GameStore Evaluation](https://arxiv.org/abs/2602.17594) | | | | ✅ |
 
 ---
 
 ## The Near-Consensus Pick
 
-### "The Runtime Dimension of Ethics in Self-Adaptive Systems" (2602.17426) — 3 of 4 models
+### "The Runtime Dimension of Ethics in Self-Adaptive Systems" ([2602.17426](https://arxiv.org/abs/2602.17426)) — 3 of 4 models
 
 Three models independently flagged this ICSE paper (a software engineering venue, not core ML). Each framed it differently:
 
@@ -85,19 +85,19 @@ Notably, **Kimi K2 was the only model that didn't pick it** — choosing instead
 
 ## The Pair Picks
 
-### Weak & Strong Verification (17633) — Opus + GPT-5 + Kimi K2
+### Weak & Strong Verification ([2602.17633](https://arxiv.org/abs/2602.17633)) — Opus + GPT-5 + Kimi K2
 
 The most-selected technical paper (3 of 4). Opus saw governance implications for regulatory escalation. GPT-5 called it "the most useful abstraction for trustworthy agent loops at scale." Kimi K2 framed it as "chain-of-trust envelopes for production governance dashboards." Three different angles, same conclusion: verification economics is an underappreciated design dimension.
 
-### Multi-Round Human-AI Collaboration (17646) — Opus + Kimi K2
+### Multi-Round Human-AI Collaboration ([2602.17646](https://arxiv.org/abs/2602.17646)) — Opus + Kimi K2
 
 Both models were drawn to the formalization of human-AI interaction as a control problem with user-specified safety invariants. Opus emphasized the political insight (who defines the rules of engagement?). Kimi K2 called it "the missing layer for open-ended socio-technical CPS" where every user becomes "a local governance node."
 
-### Modular Learning (17554) — Opus + Gemini
+### Modular Learning ([2602.17554](https://arxiv.org/abs/2602.17554)) — Opus + Gemini
 
 Both saw the minimax robustness result as the key to post-monolithic AI development. Opus emphasized marketplace implications. Gemini called it "a blueprint for a different kind of scaling."
 
-### AI-Native Accelerator (17536) — Gemini + Kimi K2
+### AI-Native Accelerator ([2602.17536](https://arxiv.org/abs/2602.17536)) — Gemini + Kimi K2
 
 The boldest shared pick. Both models recognized the paradigm shift from "retrofit AI onto infrastructure" to "co-design infrastructure and AI control from the start." Kimi K2 added: "Regulators will love or fear it — no middle ground."
 
