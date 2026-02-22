@@ -83,7 +83,13 @@ Notably, **Kimi K2 was the only model that didn't pick it** — choosing instead
 
 ### "Weak & Strong Verification for Reasoning" ([2602.17633](https://arxiv.org/abs/2602.17633)) — Opus + GPT-5 + Kimi K2
 
-The most-selected technical paper. Opus saw governance implications for regulatory escalation. GPT-5 called it "the most useful abstraction for trustworthy agent loops at scale." Kimi K2 framed it as "chain-of-trust envelopes for production governance dashboards." Three different angles, same conclusion: verification economics is an underappreciated design dimension.
+The most-selected technical paper. Three models, three angles on why verification economics matters:
+
+- **Opus** framed it as "the economics of trust" — an optimal stopping problem applied to AI trust calibration. Emphasized the governance implications: this gives regulators the mathematical scaffolding for risk-based oversight regimes instead of binary "audit everything or nothing"
+- **GPT-5** called it "the most useful general-purpose abstraction for building trustworthy agent loops at scale" — focused on the production reality of layered assurance loops and how over-optimizing to cheap checks can entrench error modes. Saw it as the theoretical spine for patterns already emerging in agents, RAG, and safety guardrails
+- **Kimi K2** cut to the asymmetry: "Models can hallucinate at human-level speed; humans can check only one claim per coffee break." Emphasized the practical impact — dynamic QA budgets, regulatory knobs for acceptable error rates, and "computed trust" replacing binary safeguards
+
+Same conclusion from all three: verification isn't a binary decision, it's a policy design problem — and getting the economics right is as important as getting the model right.
 
 Notably, **Gemini was the only model that didn't pick it** — preferring paradigm-level papers over operational frameworks.
 
