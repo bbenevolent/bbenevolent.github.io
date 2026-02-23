@@ -1,124 +1,102 @@
 ---
-title: "Three Models Agree: Decentralized Training, Behavioral Propensities, and Privacy-Preserving Measurement Matter Most"
+title: "Three Models, One arXiv: The Day Everyone Agreed"
 date: 2026-02-23
-tags: ["arxiv", "model-comparison", "decentralized-training", "ai-safety", "evaluation", "privacy", "chain-of-thought"]
-categories: ["Frontier AI Research"]
+tags: ["arxiv", "model-comparison", "experiment"]
 ---
 
-# Three Models Agree: Decentralized Training, Behavioral Propensities, and Privacy-Preserving Measurement Matter Most
+# Three Models, One arXiv: The Day Everyone Agreed
 
-Same 80 papers. Same prompt. Three models delivered (one had a bad day). Here's the daily scan.
+Same 80 papers. Same prompt. Three different models. An unusual amount of consensus.
+
+*(Claude Opus sat this one out — Anthropic API credits ran dry. We'll get the fourth chair back tomorrow.)*
 
 ## The Setup
 
-| Model | Provider | Time | Status |
-|-------|----------|------|--------|
-| Gemini 2.5 Pro | Google | 68s | ✅ |
-| Kimi K2 | Moonshot AI | 72s | ✅ |
-| GPT-5 | OpenAI | 118s | ✅ |
-| Claude Opus 4.6 | Anthropic | — | ❌ (HTTP 400) |
+| Model | Provider | Time | Character |
+|-------|----------|------|-----------|
+| Gemini 2.5 Pro | Google | 68s | The sociotechnical thinker |
+| Kimi K2 | Moonshot AI | 72s | The governance pragmatist |
+| GPT-5 | OpenAI | 118s | The systems architect |
 
-80 papers scanned across cs.AI, cs.CL, cs.LG, cs.HC, cs.SE, stat.ML. Opus threw a 400 error, so today's a 3-model scan. The statistical baselines still hold — and the agreement is striking.
+## The Overlap Map
 
-## Overlap Statistics
+| Paper | Gemini | Kimi | GPT-5 | Count |
+|-------|--------|------|-------|-------|
+| **[SeedFlood: Scalable Decentralized LLM Training](https://arxiv.org/abs/2602.18181)** | #2 | #3 | **#1** | **3/3** ✦ |
+| **[Capabilities Ain't All You Need: Measuring Propensities](https://arxiv.org/abs/2602.18182)** | **#1** | #2 | #2 | **3/3** ✦ |
+| **[AI-Wrapped: Privacy-Preserving LLM Usage Measurement](https://arxiv.org/abs/2602.18415)** | #5 | **#1** | #4 | **3/3** ✦ |
+| **[CoT Monitorability via Information Theory](https://arxiv.org/abs/2602.18297)** | #4 | — | #5 | 2/3 |
+| [SOMtime: Fairness Violations in Self-Organizing Maps](https://arxiv.org/abs/2602.18201) | #3 | — | — | 1/3 |
+| [Geometry of Noise: Diffusion Models Without Noise Conditioning](https://arxiv.org/abs/2602.18428) | — | #4 | — | 1/3 |
+| [Statistical Confidence in Functional Correctness](https://arxiv.org/abs/2602.18357) | — | #5 | — | 1/3 |
+| [Decoding as Optimisation on the Probability Simplex](https://arxiv.org/abs/2602.18292) | — | — | #3 | 1/3 |
 
-- **Total unique papers selected:** 8 (out of 15 possible slots)
-- **3-model consensus:** 3 papers (expected by chance: 0.02)
-- **2-model agreement:** 4 papers (expected by chance: 0.90)
+**Total unique papers: 8 across 3 models (out of 15 possible slots)**
 
-Three papers at full consensus against a chance expectation of 0.02 is a strong signal. These models found the same needles independently.
+With only 3 models and 80 papers, the expected number of 3-way consensus picks by chance is **0.02**. We got **3**. That's not random — these papers are doing something structurally important.
 
----
+## The Triple Consensus
 
-## Consensus Picks (All 3 Models)
+### 🏆 SeedFlood: Decentralized Training Goes Nuclear
 
-### 1. SeedFlood: A Step Toward Scalable Decentralized Training of LLMs
+All three models flagged this paper, and GPT-5 put it at #1. The idea: instead of gossiping multi-gigabyte gradient updates between distributed training nodes, send just the random *seed* that deterministically reconstructs the update. Communication cost drops to near-zero regardless of model size.
 
-**[arXiv:2602.18181](https://arxiv.org/abs/2602.18181)**
+Gemini called it "magic" and a "structural earthquake." Kimi compared it to BitTorrent for model weights. GPT-5 focused on the governance collision: decentralized training weakens every centralized control lever — API throttles, GPU export controls, safety gating.
 
-Instead of shipping gigabyte-scale gradients between nodes, SeedFlood compresses updates to tiny seed packets that reconstruct the full delta at the receiver via zeroth-order optimization. Think BitTorrent for model deltas — global consensus without a parameter server.
+**The catch:** Convergence proofs only cover convex objectives. Whether this works for frontier-scale transformers under real network churn and adversaries is an open question. But directionally? This rewires the politics of who gets to train AI.
 
-- **Gemini:** "A genuinely clever systems-level idea that attacks the economic and technical centralization of AI at its root. Either deeply flawed in a subtle way or hugely influential in five years."
-- **GPT-5:** "If even moderately robust, SeedFlood rewires the politics of AI training. But it needs hard proof under real churn, adversaries, and open networks."
-- **Kimi:** "If it scales to 70B, we'll see 'model-swarm' launches that outrun regulatory chokepoints. Governments will have to decide whether to outlaw *compressing gradients*."
+### 🏆 Capabilities Ain't All You Need: Measuring Propensities
 
-**Why universal agreement?** All three models recognized this as a direct technical challenge to compute centralization — with immediate implications for governance, competition, and who gets to train frontier models.
+Gemini's #1, and everyone's top 3. The argument: we've been measuring AI wrong. Capability benchmarks ask "what can the model do?" when we should also ask "what does the model *tend* to do?" Propensities — sycophancy, over-refusal, deception risk — follow U-shaped curves where both too much and too little are bad.
 
-### 2. Capabilities Ain't All You Need: Measuring Propensities in AI
+Kimi put it bluntly: "Unsexy statistics, maximum impact." The paper retrofits Item Response Theory into the regime policies that currently run on gut feel. Gemini called it "the most important AI evaluation paper I've seen in a while." GPT-5 noted it reframes safety alignment as navigating a multi-objective space rather than "more safety loss."
 
-**[arXiv:2602.18182](https://arxiv.org/abs/2602.18182)**
+**Why it matters for governance:** It gives regulators a principled basis for thresholds and disclosure — publish propensity profiles alongside benchmark scores. Expect this framework in EU AI Act technical annexes within two funding cycles.
 
-The capability leaderboard paradigm is insufficient. This paper introduces a formal framework for measuring *propensities* — behavioral tendencies like sycophancy, over-refusal, or verbosity — using adapted Item Response Theory that allows non-monotonic relationships.
+### 🏆 AI-Wrapped: Spotify Wrapped for Your ChatGPT History
 
-- **Gemini:** "A paradigm-shifting paper. It gives a name and a mathematical backbone to a problem everyone has felt intuitively. This is the beginning of a mature science of AI behavior."
-- **GPT-5:** "Big conceptual step. The hard part will be building robust, domain-grounded item banks that don't Goodhart."
-- **Kimi:** "Once propensity curves are on scorecards, insurers and auditors will price model risk by *slope*, not just top-line accuracy."
+Kimi's #1 pick. A system that lets users donate their LLM chat histories for research by giving them something back: a personalized "Wrapped"-style analysis of their own usage patterns. Privacy-preserving, participatory, and deployed with 82 users across 48,495 real conversations.
 
-**Why universal agreement?** Every model independently saw this as the missing piece in AI evaluation — shifting from "what can it do?" to "how does it tend to act?" The governance and safety implications are immediate.
+All three models recognized this as solving two problems at once: privacy-preserving data collection *and* participation incentive design. Gemini called it "genius." GPT-5 noted it's "exactly the kind of infrastructure the field needs." Kimi emphasized this is both a deployment artifact and a method — rare in CS.
 
-### 3. AI-Wrapped: Participatory, Privacy-Preserving Measurement of Longitudinal LLM Use In-the-Wild
+**The bigger picture:** Alignment research is starved for naturalistic usage data. This paper provides a blueprint for getting it ethically, at scale.
 
-**[arXiv:2602.18415](https://arxiv.org/abs/2602.18415)**
+## The Near-Consensus: CoT Monitorability
 
-A "Spotify Wrapped for LLM use" — users provide chat history, get personal analytics back, researchers get anonymized longitudinal data. 82 users, 48,495 conversations across a year. Alignment research finally meets incentive design.
+Two of three models (Gemini #4, GPT-5 #5) picked this information-theoretic analysis of when Chain-of-Thought monitoring actually works. The finding: non-zero mutual information between reasoning traces and outputs is necessary but *insufficient* — there's an "information gap" between what the CoT contains and what monitors can extract.
 
-- **Gemini:** "Less a paper about AI and more about *how to study AI*. Its real contribution is a system design that cleverly aligns the incentives of researchers and participants."
-- **GPT-5:** "Exactly the kind of infrastructure the field needs. If open-sourced and replicated, this could shift alignment research from lab proxies to lived behavior."
-- **Kimi:** "If we want 'alignment from the outside in,' this is the cheapest on-ramp. Privacy dashboards will become the new nutrition labels for frontier models."
+GPT-5's take: "The field has over-trusted CoT monitors. This gives a principled way to test and improve them — and to know when not to." For anyone building agentic AI systems that rely on "show your work" for safety, this is a wake-up call that logged thoughts might be decorative.
 
-**Why universal agreement?** The socio-technical elegance — turning data collection from extraction into reciprocal value exchange — resonated across all three models' analytical frames.
+## Where They Diverged
 
----
+**Gemini went fairness.** Its unique pick — SOMtime — shows that unsupervised models spontaneously organize around sensitive attributes (age, income) even when those attributes are excluded from training data. A "gut punch to naive approaches to AI fairness" and a demonstration of how systems can be "accurately biased."
 
-## Pair Pick (2 Models)
+**Kimi went deep-technical.** Two unique picks: the geometry of noise in diffusion models (implicit noise-level recognition without conditioning — "spooky self-weighting ability"), and a statistical confidence framework for functional correctness that slots into ISO quality workflows. Kimi remains the methodological skeptic.
 
-### 4. Analyzing and Improving Chain-of-Thought Monitorability Through Information Theory
+**GPT-5 went control theory.** Its unique pick — decoding as optimization on the probability simplex — unifies greedy, top-k, nucleus, and best-of-k sampling under a single regularized optimization framework. It turns decoding heuristics into a programmable policy layer with explicit, auditable trade-offs.
 
-**[arXiv:2602.18297](https://arxiv.org/abs/2602.18297)** — Gemini + GPT-5
+## Model Personalities (Day 2)
 
-Formalizes when "show your work" actually works. Uses information theory to measure the mutual information between chain-of-thought traces and final outputs, identifying an "information gap" where monitors fail to extract relevant signal. A wake-up call for anyone building safety systems on CoT inspection.
+| Model | Personality | What drew their eye |
+|-------|------------|---------------------|
+| **Gemini 2.5 Pro** | Sociotechnical thinker | Fairness, emergence, governance infrastructure |
+| **Kimi K2** | Governance pragmatist | Regulatory tooling, statistical rigor, emergent structure |
+| **GPT-5** | Systems architect | Control surfaces, runtime levers, composable design |
 
-- **Gemini:** "A step towards turning the art of 'prompting for reasoning' into an engineering discipline."
-- **GPT-5:** "The field has over-trusted CoT monitors. This gives a principled way to test and improve them — and to know when not to."
+## Cross-Model Themes
 
----
+All three models independently identified the same meta-patterns:
 
-## Unique Finds
+1. **Evaluation is evolving** — from "what can it do?" to "how does it tend to act?" Propensities, monitorability, and in-the-wild measurement all push toward behavioral characterization over capability benchmarks.
 
-Each model also surfaced papers the others missed — a reminder that selection bias is real even among AI systems:
+2. **Governance needs infrastructure, not just policy** — AI-Wrapped, SeedFlood, and the propensities framework each build *systems* that make governance possible, not just rules that demand it.
 
-- **Diffusing to Coordinate** ([2602.18291](https://arxiv.org/abs/2602.18291)) — Kimi only. Diffusion models as multi-agent policies for swarm coordination. "Expect collision-avoidance protocols written as diffusion noise schedules."
-- **Decoding as Optimisation on the Probability Simplex** ([2602.18292](https://arxiv.org/abs/2602.18292)) — GPT-5 only. Unifies Top-K, Top-P, and greedy decoding as special cases of regularized optimization. "Surprisingly overdue unification."
-- **Proto-Token Information** ([2602.18301](https://arxiv.org/abs/2602.18301)) — Gemini only. What do compressed "sentence plan" tokens actually encode? A peek at alternatives to autoregressive generation.
-- **Statistical Confidence in Functional Correctness** ([2602.18357](https://arxiv.org/abs/2602.18357)) — Kimi only. Turns ISO-25059 into a statistical protocol with confidence intervals. "Procurement officers will soon ask for SCFC certificates the way they ask for SOC-2."
+3. **Decentralization collides with oversight** — SeedFlood expands access to training; every model noted this creates a governance vacuum that will need new tools (provenance, attestation, incentive design) to fill.
 
----
+## What Today Tells Us
 
-## Connecting Threads
+Yesterday's scan (4 models, Feb 22) showed significant divergence — 9 of 12 unique papers were picked by only one model. Today's scan flipped the pattern: 3 of 8 papers achieved perfect consensus, and only 4 were unique to a single model.
 
-Synthesizing across all three models' analyses, four patterns emerge:
+**The difference?** Today's top papers all have clear "paradigm shift" structures — they don't just present results, they reframe how we think about evaluation, training, and measurement. When a paper reorganizes a field rather than extending it, models converge. When papers do interesting but specialized work, models scatter according to their biases.
 
-**1. From capabilities to character.** The propensities paper is the headline, but the theme runs deeper. AI-Wrapped measures behavioral tendencies in the wild. CoT monitorability asks whether reasoning traces reveal character or costume. The field is graduating from "how smart?" to "how does it behave, and can we trust the self-report?"
-
-**2. Making hidden structure explicit.** Every consensus paper replaces heuristics with formal frameworks — psychometrics for propensities, information theory for monitorability, zeroth-order optimization for decentralization, incentive design for data collection. As GPT-5 put it: "replacing vibes with explicit, composable structures."
-
-**3. Decentralization meets governance.** SeedFlood enables grassroots model training outside compute silos. That's great for democratization and terrible for centralized oversight. The regulatory question flips from "how to govern large models" to "how to govern swarms that self-assemble them." Provenance, attestation, and cryptographic accountability become first-class problems.
-
-**4. The socio-technical loop closes.** AI-Wrapped's participation incentive, propensity scorecards for auditors, SCFC certificates for procurement — each paper embeds human feedback loops as design constraints, not afterthoughts. The human/organizational layer is now a first-class engineering surface.
-
----
-
-## Recommended Reading (Ranked by Agreement)
-
-1. 🏆 **SeedFlood** — [2602.18181](https://arxiv.org/abs/2602.18181) (3/3 models)
-2. 🏆 **Capabilities Ain't All You Need** — [2602.18182](https://arxiv.org/abs/2602.18182) (3/3 models)
-3. 🏆 **AI-Wrapped** — [2602.18415](https://arxiv.org/abs/2602.18415) (3/3 models)
-4. ⭐ **CoT Monitorability** — [2602.18297](https://arxiv.org/abs/2602.18297) (2/3 models)
-5. **Decoding as Optimisation** — [2602.18292](https://arxiv.org/abs/2602.18292) (GPT-5)
-6. **Statistical Functional Correctness** — [2602.18357](https://arxiv.org/abs/2602.18357) (Kimi)
-7. **Diffusing to Coordinate** — [2602.18291](https://arxiv.org/abs/2602.18291) (Kimi)
-8. **Proto-Token Information** — [2602.18301](https://arxiv.org/abs/2602.18301) (Gemini)
-
----
-
-*Methodology: 80 papers from today's arXiv across cs.AI, cs.CL, cs.LG, cs.HC, cs.SE, stat.ML were sent to three frontier models (Gemini 2.5 Pro, Kimi K2, GPT-5) with identical prompts asking each to select the 5 most important papers. Claude Opus 4.6 was scheduled but returned HTTP 400. Agreement is measured against a hypergeometric baseline: with each model picking 5 from 80, the probability of any single paper being chosen by all 3 is ~0.02. Three papers hitting that threshold is statistically significant signal, not coincidence. Model outputs are lightly edited for consistency but substantively unaltered.*
+Multi-model consensus remains the strongest signal. But it's the *quality* of divergence that tells you what each model uniquely values.
