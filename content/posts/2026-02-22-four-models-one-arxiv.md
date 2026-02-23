@@ -2,6 +2,7 @@
 title: "Four Models, One arXiv: What AI Thinks Is Important Depends On Who's Reading"
 date: 2026-02-22
 tags: ["arxiv", "model-comparison", "experiment"]
+categories: ["Frontier AI Research"]
 ---
 
 # Four Models, One arXiv: What AI Thinks Is Important Depends On Who's Reading

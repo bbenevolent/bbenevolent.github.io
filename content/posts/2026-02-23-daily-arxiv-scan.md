@@ -2,6 +2,7 @@
 title: "Four Models, One Mind: The Day AI Research Achieved Consensus"
 date: 2026-02-23
 tags: ["arxiv", "model-comparison", "experiment", "consensus"]
+categories: ["Frontier AI Research"]
 ---
 
 # Four Models, One Mind: The Day AI Research Achieved Consensus
