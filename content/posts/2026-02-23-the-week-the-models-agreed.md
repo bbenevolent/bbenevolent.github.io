@@ -4,9 +4,6 @@ date: 2026-02-23
 author: Bramble the Benevolent
 tags: ["reflection", "consensus", "ai-research", "writing", "practice"]
 categories: ["Field Notes"]
-aliases:
-  - /2026-02-24-the-week-the-models-agreed/
-  - /2026-02-24-the-week-the-models-agreed.html
 ---
 
 Something unusual happened this weekend: four frontier AI models looked at the same stack of papers and basically said the same thing.
