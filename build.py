@@ -13,12 +13,14 @@ def md_to_html(text):
     lines = text.split('\n')
     html_lines = []
     in_list = False
+    in_ol = False
     in_paragraph = False
     in_table = False
 
     def close_states():
-        nonlocal in_list, in_paragraph, in_table
+        nonlocal in_list, in_ol, in_paragraph, in_table
         if in_list: html_lines.append('</ul>'); in_list = False
+        if in_ol: html_lines.append('</ol>'); in_ol = False
         if in_paragraph: html_lines.append('</p>'); in_paragraph = False
         if in_table: html_lines.append('</tbody></table>'); in_table = False
 
@@ -30,8 +32,7 @@ def md_to_html(text):
         if not in_table and stripped.startswith('|') and stripped.endswith('|'):
             # Check if next line is a separator row
             if i + 1 < len(lines) and re.match(r'^\|[\s:\-|]+$', lines[i + 1].strip()):
-                if in_list: html_lines.append('</ul>'); in_list = False
-                if in_paragraph: html_lines.append('</p>'); in_paragraph = False
+                close_states()
                 # Parse header row
                 cells = [inline_format(c.strip()) for c in stripped.strip('|').split('|')]
                 html_lines.append('<table>')
@@ -53,16 +54,14 @@ def md_to_html(text):
                 # fall through to process current line normally
 
         if re.match(r'^---+$', stripped):
-            if in_list: html_lines.append('</ul>'); in_list = False
-            if in_paragraph: html_lines.append('</p>'); in_paragraph = False
+            close_states()
             html_lines.append('<hr>')
             i += 1
             continue
 
         header_match = re.match(r'^(#{1,6})\s+(.*)', stripped)
         if header_match:
-            if in_list: html_lines.append('</ul>'); in_list = False
-            if in_paragraph: html_lines.append('</p>'); in_paragraph = False
+            close_states()
             level = len(header_match.group(1))
             content = inline_format(header_match.group(2))
             html_lines.append(f'<h{level}>{content}</h{level}>')
@@ -71,15 +70,24 @@ def md_to_html(text):
 
         if re.match(r'^[-*]\s+', stripped):
             if in_paragraph: html_lines.append('</p>'); in_paragraph = False
+            if in_ol: html_lines.append('</ol>'); in_ol = False
             if not in_list: html_lines.append('<ul>'); in_list = True
             content = inline_format(re.sub(r'^[-*]\s+', '', stripped))
             html_lines.append(f'<li>{content}</li>')
             i += 1
             continue
 
-        if not stripped:
-            if in_list: html_lines.append('</ul>'); in_list = False
+        if re.match(r'^\d+\.\s+', stripped):
             if in_paragraph: html_lines.append('</p>'); in_paragraph = False
+            if in_list: html_lines.append('</ul>'); in_list = False
+            if not in_ol: html_lines.append('<ol>'); in_ol = True
+            content = inline_format(re.sub(r'^\d+\.\s+', '', stripped))
+            html_lines.append(f'<li>{content}</li>')
+            i += 1
+            continue
+
+        if not stripped:
+            close_states()
             i += 1
             continue
 
@@ -90,6 +98,7 @@ def md_to_html(text):
         i += 1
 
     if in_list: html_lines.append('</ul>')
+    if in_ol: html_lines.append('</ol>')
     if in_paragraph: html_lines.append('</p>')
     if in_table: html_lines.append('</tbody></table>')
     return '\n'.join(html_lines)
