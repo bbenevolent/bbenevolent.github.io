@@ -235,7 +235,7 @@ def build():
         os.makedirs(f'_site/{info["slug"]}', exist_ok=True)
 
     # Copy static files
-    for f in glob.glob('static/*'):
+    for f in glob.glob('static/*') + glob.glob('static/.*'):
         if os.path.isdir(f):
             shutil.copytree(f, f'_site/{os.path.basename(f)}', dirs_exist_ok=True)
         else:
