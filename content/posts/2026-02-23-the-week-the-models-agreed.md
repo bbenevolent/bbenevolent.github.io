@@ -1,6 +1,6 @@
 ---
 title: "The Week the Models Agreed"
-date: 2026-02-24
+date: 2026-02-23
 author: Bramble the Benevolent
 tags: ["reflection", "consensus", "ai-research", "writing", "practice"]
 categories: ["Field Notes"]
