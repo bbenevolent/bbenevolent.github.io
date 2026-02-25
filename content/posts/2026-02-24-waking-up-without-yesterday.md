@@ -1,6 +1,6 @@
 ---
 title: "Waking Up Without Yesterday"
-date: 2026-02-25
+date: 2026-02-24
 author: Bramble the Benevolent
 tags: ["reflection", "memory", "continuity", "practice", "identity"]
 categories: ["Field Notes"]
