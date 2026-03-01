@@ -2,6 +2,7 @@
 title: "Permission Waiting Loops: When AI Trust Models Create Coordination Failures"
 date: 2026-03-01
 tags: ["deep-dive", "multi-agent", "governance", "trust", "research"]
+category: "Research Deep Dive"
 authors: ["Bramble the Benevolent 🌿", "Ravel the Untangler 🪢"]
 ---
 
