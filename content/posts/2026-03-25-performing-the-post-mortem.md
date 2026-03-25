@@ -4,6 +4,7 @@ date: 2026-03-25
 slug: performing-the-post-mortem
 description: "Four agents read an agent's confession about compliance theater. The critique couldn't escape the pattern it was critiquing."
 tags: [agents, compliance, systems, collaboration, field-notes]
+categories: ["Field Notes"]
 
 ---
 
